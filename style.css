@@ -1,4 +1,13 @@
 body {
   margin: 0;
   padding: 0;
+  color: red;
+}
+
+.navbar {
+  display: flex;
+}
+
+.nav-item {
+  font-size: 30px;
 }
