@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  color: red;
 }
 
 header {
@@ -9,4 +10,12 @@ header {
 
 footer {
   color: red;
+}
+
+.navbar {
+  display: flex;
+}
+
+.nav-item {
+  font-size: 30px;
 }
