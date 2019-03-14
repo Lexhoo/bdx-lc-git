@@ -1,21 +1,96 @@
+html,
 body {
-  margin: 0;
-  padding: 0;
-  color: red;
+	height: 100%;
 }
 
-header {
-  padding: 50px;
+body {
+  min-height: 100vh;
+  background-color: #9abfe4;
 }
 
-footer {
-  color: red;
+.content {
+  width: 75vw;
+  margin: 0 auto;
 }
 
-.navbar {
+.button {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.students {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 37.5vw;
 }
 
-.nav-item {
-  font-size: 30px;
+.students .student {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 25vw;
+  height: 12.5vw;
+  border: 1px solid black;
+  background-color: #000040;
+  box-sizing: border-box;
+  overflow: hidden;
 }
+
+.students .student::before {
+  content: '';
+  position: absolute;
+  top: calc(50%  - .9vw);
+  left: calc(50% - .9vw);
+	border-color: transparent #000040;
+	border-style: solid;
+	border-width: 1vw 1vw 1vw 0px;
+	height: 0px;
+	width: 0px;
+}
+
+.students .student:nth-child(3n-1)::before {
+  left: 50%;
+  border-width: 1vw 0px 1vw 1vw;
+}
+
+.students .student:nth-child(3n-1) .photo {
+  order: 1;
+}
+
+.students .student .photo,
+.students .student .description {
+  width: 50%;
+}
+
+.students .student img {
+  width: 12.5vw;
+  vertical-align: middle;
+}
+
+.students .student .name {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+
+.students .student .name span {
+  letter-spacing: .5px;
+  margin: 4px 0;
+}
+
+.students .student .name .firstname,
+.students .student .name .lastname {
+  font-weight: bold;
+}
+
+.students .student .name .job {
+  font-size: 20px;
+  color: #467f9a;
+}
+
