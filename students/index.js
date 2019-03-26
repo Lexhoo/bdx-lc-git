@@ -1,50 +1,58 @@
-const students = [{
+const persons = [{
   firstname: 'harry',
   lastname: 'potter',
   image: 'harry',
-  job: 'wizard'
+  job: 'wizard',
+  type: 'student',
 }, {
   firstname: 'hermione',
   lastname: 'granger',
   image: 'hermione',
-  job: 'wizard'
+  job: 'wizard',
+  type: 'student',
 }, {
   firstname: 'ron',
   lastname: 'weasley',
   image: 'ron',
-  job: 'wizard'
+  job: 'wizard',
+  type: 'student',
 }, {
   firstname: 'hagrid',
   lastname: 'rubeus',
   image: 'hagrid',
-  job: 'professor'
+  job: 'professor',
+  type: 'prof',
 }, {
   firstname: 'albus',
   lastname: 'dumbledore',
   image: 'albus',
-  job: 'headmaster'
+  job: 'headmaster',
+  type: 'prof',
 }, {
   firstname: 'severus',
   lastname: 'snape',
   image: 'severus',
-  job: 'professor'
+  job: 'professor',
+  type: 'prof',
 }, {
   firstname: 'tom',
   lastname: 'riddle',
   image: 'tom',
-  job: 'bad guy'
+  job: 'bad guy',
+  type: 'student',
 }, {
   firstname: 'drago',
   lastname: 'malefoy',
   image: 'drago',
-  job: 'cunt'
+  job: 'cunt',
+  type: 'student',
 }, {
   firstname: 'dolores',
   lastname: 'umbridge',
   image: 'dolores',
-  job: 'bad girl'
+  job: 'bad girl',
+  type: 'prof',
 }];
-
 
 const loadStudents = function(listStudents) {
   const template = document.getElementsByClassName('student')[0];
@@ -55,9 +63,10 @@ const loadStudents = function(listStudents) {
   for (let i = 0; i < listStudents.length; i++) {
       const student = listStudents[i];
       const elementStudent = template.cloneNode(true);
+      elementStudent.setAttribute('href', 'detail .html?student=' + i);
       // récupère l'image
       const elementImage = elementStudent.getElementsByTagName('img')[0];
-      elementImage.src = student.image + '.jpg';
+      elementImage.src = './images/' + student.image + '.jpg';
       //lastname
       const elementLastname = elementStudent.getElementsByClassName('lastname')[0];
       elementLastname.innerHTML = student.lastname;
@@ -71,20 +80,31 @@ const loadStudents = function(listStudents) {
       container.appendChild(elementStudent);
   }
 }
-
-loadStudents(students);
-
+loadStudents(persons);
 // 2eme partie du livecoding
-const btnShuffle = document.getElementById('random-student');
-btnShuffle.addEventListener('click', function() {
-  const randomStudents = _.shuffle(students);
-  loadStudents(randomStudents);
+const btnAll = document.getElementById('show-all');
+const btnStudents = document.getElementById('show-students');
+const btnProfs = document.getElementById('show-profs');
+
+const filterPerson = function(type){
+  const students = persons.filter(function(person) {
+    return person.type === type;
+  });
+  loadStudents(students);
+}
+
+btnAll.addEventListener('click', function(){
+  loadStudents(persons);
 });
 
-window.addEventListener('resize', function() {
-  console.log('JE SUIS REDIMENSIONNE !!!!!', window.innerWidth, window.innerHeight)
-  console.log('\n')
-})
+btnStudents.addEventListener('click', function() {
+  filterPerson("student");
+});
+
+btnProfs.addEventListener('click', function(){
+  filterPerson("prof");
+});
+
 
 
 

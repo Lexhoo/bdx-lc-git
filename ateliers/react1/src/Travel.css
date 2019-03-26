@@ -1,0 +1,19 @@
+.Travel {
+  width: 380px;
+  height: 370px;
+  border: 1px solid black;
+}
+
+.Travel img {
+  width: 380px;
+  height: 248px;
+}
+
+.Travel .description {
+  text-transform: uppercase;
+  color: #555;
+}
+
+.Travel .unit-price {
+  color: blue;
+}

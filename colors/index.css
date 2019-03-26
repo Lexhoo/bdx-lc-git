@@ -1,0 +1,59 @@
+body {
+  min-height: 100vh;
+  background-color: aliceblue;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.content {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.colors {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.colors .header > *,
+.colors .color > * {
+  display: inline-block;
+  width: 33%;
+}
+
+.colors .header,
+.colors  .color {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.colors .header {
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+}
+
+.colors .color {
+  margin: 5px 0;
+}
+
+.sample {
+  width: 150px;
+  height: 75px;
+  background-color: black;
+  border: 2px solid black;
+}
+
+.code-hexa {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.option button {
+  font-size: 24px;
+}
